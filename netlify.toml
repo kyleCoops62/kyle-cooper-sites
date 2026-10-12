@@ -1,0 +1,8 @@
+[build]
+  publish = "."
+
+# Previews are private pitches to one business owner: keep them out of search engines.
+[[headers]]
+  for = "/previews/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"

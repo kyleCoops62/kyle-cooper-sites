@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Seabright Pool Care · Sample site by Kyle Cooper</title>
+<meta name="description" content="Sample small-business website built by Kyle Cooper. Seabright Pool Care is a fictional business.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #0c2236;
+  --ink-soft: #46596b;
+  --water: #0f7c9c;
+  --water-deep: #0a5a73;
+  --foam: #e8f6f9;
+  --sun: #ffc845;
+  --paper: #ffffff;
+  --line: #d6e6ec;
+  --display: "Unbounded", "Arial Black", system-ui, sans-serif;
+  --body: "Manrope", "Segoe UI", system-ui, sans-serif;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; font-family: var(--body); color: var(--ink); background: var(--paper); font-size: 17px; line-height: 1.6; }
+a { color: inherit; }
+.ribbon { background: var(--ink); color: #fff; font-size: 13px; text-align: center; padding: 8px 16px; }
+.ribbon b { color: var(--sun); }
+.wrap { max-width: 1040px; margin: 0 auto; padding-inline: 20px; }
+header.top { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 18px; flex-wrap: wrap; }
+.logo { font-family: var(--display); font-weight: 700; font-size: 20px; letter-spacing: -0.01em; display: flex; align-items: center; gap: 10px; }
+.logo svg { flex: none; }
+.top-call { font-weight: 700; text-decoration: none; background: var(--foam); padding: 8px 14px; border-radius: 999px; font-size: 15px; }
+.hero { background: linear-gradient(180deg, var(--foam) 0%, #ffffff 100%); }
+.hero-inner { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 40px; align-items: center; padding-block: 48px 56px; }
+.hero h1 { font-family: var(--display); font-weight: 700; font-size: clamp(32px, 5.4vw, 54px); line-height: 1.05; letter-spacing: -0.02em; margin: 0 0 16px; text-wrap: balance; }
+.hero h1 em { font-style: normal; color: var(--water); }
+.hero p { margin: 0 0 24px; color: var(--ink-soft); max-width: 46ch; font-size: 18px; }
+.ctas { display: flex; gap: 12px; flex-wrap: wrap; }
+.btn { display: inline-flex; align-items: center; justify-content: center; min-height: 50px; padding: 0 22px; border-radius: 12px; font-weight: 700; text-decoration: none; font-size: 16px; }
+.btn-primary { background: var(--water); color: #fff; }
+.btn-primary:hover { background: var(--water-deep); }
+.btn-ghost { border: 2px solid var(--water); color: var(--water-deep); }
+.btn:focus-visible, .top-call:focus-visible { outline: 3px solid var(--sun); outline-offset: 2px; }
+.trust { display: flex; gap: 18px; flex-wrap: wrap; margin-top: 22px; font-size: 14px; color: var(--ink-soft); }
+.trust span::before { content: "✓ "; color: var(--water); font-weight: 700; }
+.pool-card { background: var(--water); border-radius: 24px; aspect-ratio: 4 / 5; max-width: 100%; position: relative; overflow: hidden; }
+.pool-card canvas { width: 100%; height: 100%; display: block; }
+.pool-tag { position: absolute; left: 16px; bottom: 16px; background: #fff; border-radius: 14px; padding: 12px 14px; font-size: 14px; box-shadow: 0 6px 20px rgba(12,34,54,.18); }
+.pool-tag b { display: block; font-family: var(--display); font-size: 15px; }
+section { padding-block: 56px; }
+h2 { font-family: var(--display); font-weight: 700; font-size: clamp(24px, 3.6vw, 34px); letter-spacing: -0.01em; margin: 0 0 8px; }
+.lead { color: var(--ink-soft); margin: 0 0 28px; max-width: 56ch; }
+.services { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+.svc { border: 1px solid var(--line); border-radius: 16px; padding: 20px; display: grid; gap: 6px; align-content: start; }
+.svc h3 { margin: 0; font-size: 18px; }
+.svc p { margin: 0; color: var(--ink-soft); font-size: 15px; }
+.svc .price { font-weight: 700; color: var(--water-deep); font-size: 15px; margin-top: 4px; }
+.band { background: var(--foam); }
+.two { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+.areas { display: flex; flex-wrap: wrap; gap: 8px; padding: 0; margin: 0; list-style: none; }
+.areas li { background: #fff; border: 1px solid var(--line); border-radius: 999px; padding: 6px 12px; font-size: 14px; }
+table.hours { border-collapse: collapse; width: 100%; max-width: 380px; font-variant-numeric: tabular-nums; }
+.hours td { padding: 8px 0; border-bottom: 1px solid var(--line); }
+.hours td:last-child { text-align: right; font-weight: 600; }
+.reviews-note { border: 2px dashed var(--line); border-radius: 16px; padding: 22px; color: var(--ink-soft); }
+.contact { background: var(--ink); color: #fff; border-radius: 24px; padding: 36px 28px; display: grid; gap: 14px; }
+.contact h2 { color: #fff; }
+.contact p { margin: 0; color: #c6d4df; }
+.contact .num { font-family: var(--display); font-size: clamp(24px, 4vw, 34px); color: var(--sun); text-decoration: none; }
+footer { padding-block: 28px 40px; color: var(--ink-soft); font-size: 14px; display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+@media (max-width: 760px) {
+  .hero-inner, .two { grid-template-columns: 1fr; }
+  .pool-card { aspect-ratio: 16 / 10; }
+  section { padding-block: 40px; }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+</style>
+</head>
+<body>
+<div class="ribbon">Sample website built by <b>Kyle Cooper</b> · Seabright Pool Care is a fictional business</div>
+
+<div class="hero">
+  <div class="wrap">
+    <header class="top">
+      <div class="logo">
+        <svg width="34" height="34" viewBox="0 0 34 34" aria-hidden="true"><circle cx="17" cy="17" r="17" fill="#0f7c9c"/><path d="M6 19c3 0 3-2.5 5.5-2.5S14.5 19 17 19s3-2.5 5.5-2.5S25.5 19 28 19" stroke="#fff" stroke-width="2.4" fill="none" stroke-linecap="round"/><path d="M6 24c3 0 3-2.5 5.5-2.5S14.5 24 17 24s3-2.5 5.5-2.5S25.5 24 28 24" stroke="#ffc845" stroke-width="2.4" fill="none" stroke-linecap="round"/><circle cx="23" cy="10" r="3" fill="#ffc845"/></svg>
+        Seabright Pool Care
+      </div>
+      <a class="top-call" href="tel:+16195550142">(619) 555-0142</a>
+    </header>
+    <div class="hero-inner">
+      <div>
+        <h1>Clear water, <em>every single week.</em></h1>
+        <p>Owner-run pool cleaning and repair for North County San Diego. Same tech every visit, a photo of your pool after every service, and no contracts.</p>
+        <div class="ctas">
+          <a class="btn btn-primary" href="tel:+16195550142">Call for a free quote</a>
+          <a class="btn btn-ghost" href="sms:+16195550142">Text us</a>
+        </div>
+        <div class="trust"><span>Licensed &amp; insured</span><span>No contracts</span><span>Replies same day</span></div>
+      </div>
+      <div class="pool-card">
+        <canvas id="water" aria-hidden="true"></canvas>
+        <div class="pool-tag"><b>Weekly service</b>Skim, brush, vacuum, test &amp; balance</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section id="services">
+  <div class="wrap">
+    <h2>Services</h2>
+    <p class="lead">Everything a pool needs, from weekly upkeep to the green pool you've been avoiding.</p>
+    <div class="services">
+      <div class="svc"><h3>Weekly cleaning</h3><p>Skimming, brushing, vacuuming, basket and filter checks, and water chemistry every visit.</p><div class="price">From $140/month</div></div>
+      <div class="svc"><h3>Green-to-clean</h3><p>Algae cleanup and full rebalancing to get a neglected pool swimmable again.</p><div class="price">From $250</div></div>
+      <div class="svc"><h3>Equipment repair</h3><p>Pumps, heaters, timers and automation diagnosed and fixed, with parts quoted up front.</p><div class="price">Free diagnosis with weekly service</div></div>
+      <div class="svc"><h3>Filter cleaning</h3><p>Cartridge and DE filter cleaning to keep pressure down and water clear.</p><div class="price">From $95</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="info">
+  <div class="wrap two">
+    <div>
+      <h2>Where we work</h2>
+      <p class="lead">Based in Escondido, serving homes across North County.</p>
+      <ul class="areas"><li>Escondido</li><li>San Marcos</li><li>Vista</li><li>Carlsbad</li><li>Poway</li><li>Rancho Bernardo</li><li>4S Ranch</li></ul>
+    </div>
+    <div>
+      <h2>Hours</h2>
+      <table class="hours">
+        <tr><td>Monday – Friday</td><td>7am – 5pm</td></tr>
+        <tr><td>Saturday</td><td>8am – 12pm</td></tr>
+        <tr><td>Sunday</td><td>Closed</td></tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section id="reviews">
+  <div class="wrap">
+    <h2>What customers say</h2>
+    <div class="reviews-note">On a real client's site, this section shows their actual Google and Yelp reviews.</div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="contact">
+      <h2>Get a free quote</h2>
+      <p>Call or text and you'll hear back the same day.</p>
+      <a class="num" href="tel:+16195550142">(619) 555-0142</a>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <footer><span>© 2026 Seabright Pool Care (fictional)</span><span>Website by Kyle Cooper</span></footer>
+</div>
+
+<script>
+(function () {
+  var c = document.getElementById("water");
+  if (!c) return;
+  var ctx = c.getContext("2d");
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  function size() { var r = c.getBoundingClientRect(); var d = window.devicePixelRatio || 1; c.width = r.width * d; c.height = r.height * d; ctx.setTransform(d, 0, 0, d, 0, 0); }
+  function draw(t) {
+    var w = c.clientWidth, h = c.clientHeight;
+    var g = ctx.createLinearGradient(0, 0, 0, h);
+    g.addColorStop(0, "#1ba3c6"); g.addColorStop(1, "#0a5a73");
+    ctx.fillStyle = g; ctx.fillRect(0, 0, w, h);
+    ctx.strokeStyle = "rgba(255,255,255,0.22)"; ctx.lineWidth = 2;
+    for (var row = 0; row < 14; row++) {
+      ctx.beginPath();
+      for (var x = 0; x <= w; x += 8) {
+        var y = row * (h / 12) + Math.sin(x / 38 + t / 900 + row) * 7 + Math.sin(x / 17 - t / 1300 + row * 2) * 3;
+        x === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+      }
+      ctx.stroke();
+    }
+    if (!reduce) requestAnimationFrame(draw);
+  }
+  size(); window.addEventListener("resize", size); draw(0);
+})();
+</script>
+</body>
+</html>
